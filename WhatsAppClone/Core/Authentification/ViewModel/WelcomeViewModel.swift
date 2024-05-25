@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+
+class WelcomeViewModel: ObservableObject {
+    
+    @Published var showLoginView: Bool = false
+}

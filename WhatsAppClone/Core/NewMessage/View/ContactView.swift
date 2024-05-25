@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct ContactView: View {
+    
+    private var imageName: String
+    private var title: String
+    
+    init(imageName: String, title: String) {
+        self.imageName = imageName
+        self.title = title
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 16) {
+            Image(systemName: imageName)
+                .resizable()
+                .frame(width: 40, height: 40)
+                .foregroundColor(.gray)
+            Text(title)
+                .font(.headline)
+                .fontWeight(.semibold)
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    ContactView()
+    ContactView(imageName: "person.fill", title: "hi")
 }

@@ -5,4 +5,13 @@
 //  Created by YILMAZ ER on 21.05.2024.
 //
 
-import Foundation
+import SwiftUI
+
+class SettingsViewModel: ObservableObject {
+    
+    @Published var tabbarVisibility: Visibility = .hidden
+    
+    func logout() {
+        AuthService.shared.logout()
+    }
+}

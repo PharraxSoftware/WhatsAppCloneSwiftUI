@@ -19,7 +19,30 @@ struct RegistrationView: View {
             FloatingField(title: "Full name", placeholder: "", text: $viewModel.fulname)
             FloatingField(title: "Phone number", placeholder: "", text: $viewModel.phonenumber)
             FloatingField(title: "Password", placeholder: "", text: $viewModel.password)
+            
+            Button(action: {
+                Task {
+                    try await viewModel.creatUser()
+                }
+            }, label: {
+                Text("Sign Up")
+                    .authentificationButtonModifier()
+                    .padding(.vertical)
+            })
             Spacer()
+            Divider()
+            NavigationLink {
+                LoginView()
+            } label: {
+                HStack(spacing: 3) {
+                    Text("Already have an account?")
+                    Text("Sign In")
+                        .fontWeight(.semibold)
+                }
+                .font(.footnote)
+                .foregroundStyle(.gray)
+            }
+            .padding(.vertical)
         }
     }
 }
